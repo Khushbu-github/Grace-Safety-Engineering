@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { CATEGORIES } from '../../data/constants';
+import logoImg from '../../assets/logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -77,8 +78,8 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0 group">
             <img
-              src="/assets/logo.png"
-              alt="Grace Safety Engineering"
+              src={logoImg}
+              alt="Grace Safety"
               className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
           </Link>

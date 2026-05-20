@@ -2,6 +2,7 @@ import React from 'react';
 import { CONTACT_INFO, CATEGORIES } from '../../data/constants';
 import { ArrowUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logoImg from '../../assets/logo.png';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -15,7 +16,7 @@ const Footer = () => {
           
           {/* Brand */}
           <div className="space-y-6">
-            <img src="/assets/logo.png" alt="Grace Safety" className="h-40 w-auto" />
+            <img src={logoImg} alt="Grace Safety" className="h-40 w-auto" />
             <p className="text-primary font-bold text-xs uppercase tracking-[0.2em]">{CONTACT_INFO.tagline}</p>
             <p className="text-gray-500 text-sm leading-relaxed">
               Trusted supplier of industrial safety equipment and engineering tools across Bangalore and beyond.
