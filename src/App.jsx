@@ -48,7 +48,7 @@ function App() {
 
       <Navbar />
       
-      <main className="pt-24 min-h-screen">
+      <main className="min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />

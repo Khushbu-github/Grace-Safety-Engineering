@@ -31,7 +31,7 @@ const ProductSection = () => {
   const [selectedCategory, setSelectedCategory] = useState(CATEGORIES[0]);
 
   return (
-    <section id="products" className="section-padding bg-gray-50 min-h-screen">
+    <section id="products" className="section-padding pt-24 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Product Range</span>

@@ -35,7 +35,7 @@ const values = [
 
 const About = () => {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden pt-24">
 
       {/* ── 1. Hero intro ── */}
       <section className="section-padding bg-white">
