@@ -35,35 +35,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ── Top info strip ── */}
-      <AnimatePresence>
-        {!isScrolled && (
-          <motion.div
-            initial={{ height: 36, opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="bg-primary overflow-hidden"
-          >
-            <div className="container mx-auto px-6 h-9 flex items-center justify-between">
-              <div className="flex items-center gap-6 text-white/90 text-xs font-medium">
-                <a href="tel:+919740700207" className="flex items-center gap-1.5 hover:text-white transition-colors">
-                  <Phone size={11} />
-                  +91 97407 00207
-                </a>
-                <a href="mailto:sham.graysafetyeng@gmail.com" className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors">
-                  <Mail size={11} />
-                  sham.graysafetyeng@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center gap-1.5 text-white/90 text-xs font-medium">
-                <MapPin size={11} />
-                <span className="hidden md:block">Jigani, Bangalore – 560105</span>
-                <span className="md:hidden">Bangalore</span>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
 
       {/* ── Main navbar ── */}
       <nav
