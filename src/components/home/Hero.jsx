@@ -11,7 +11,7 @@ const Hero = () => {
         <div 
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 grayscale"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-green-50/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-amber-50/60" />
       </div>
 
       {/* Floating Icons */}

@@ -3,12 +3,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1FAF5A;
-  --color-primary-dark: #0B3D2E;
+  /* Updated theme colors mapped from logo */
+  --color-primary: #F4B400;
+  --color-primary-dark: #3A3A3A;
   --color-dark: #111111;
-  --color-dark-charcoal: #F8F9FA;
-  --color-light: #F5F5F5;
-  --color-accent: #17934c;
+  --color-dark-charcoal: #3A3A3A;
+  --color-light: #EAEAEA;
+  --color-accent: #FFC107;
   
   --font-outfit: "Outfit", sans-serif;
   --font-inter: "Inter", sans-serif;
@@ -52,8 +53,8 @@
   }
 
   .glass-card:hover {
-    border-color: rgba(31, 175, 90, 0.4);
-    box-shadow: 0 8px 32px rgba(31, 175, 90, 0.12);
+    border-color: rgba(244, 180, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(244, 180, 0, 0.12);
     transform: translateY(-2px);
   }
 
@@ -70,9 +71,9 @@
   }
 
   .btn-primary:hover {
-    background-color: #17934c;
+    background-color: var(--color-accent);
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(31, 175, 90, 0.3);
+    box-shadow: 0 10px 15px -3px rgba(244, 180, 0, 0.3);
   }
 
   .btn-outline {

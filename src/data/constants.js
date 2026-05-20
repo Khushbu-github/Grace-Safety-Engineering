@@ -1,10 +1,10 @@
 export const COLORS = {
-  primary: '#1FAF5A',
-  darkGreen: '#0B3D2E',
+  primary: '#F4B400',
+  darkGreen: '#3A3A3A',
   black: '#111111',
-  charcoal: '#1E1E1E',
-  lightGray: '#F5F5F5',
-  accentLime: '#9BE15D',
+  charcoal: '#3A3A3A',
+  lightGray: '#EAEAEA',
+  accentLime: '#FFC107',
   white: '#FFFFFF',
 };
 
