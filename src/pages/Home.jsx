@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import HeroCarousel from '../components/home/HeroCarousel';
 import CategoryGrid from '../components/home/CategoryGrid';
 import OurPrinciples from '../components/home/OurPrinciples';
+import Testimonials from '../components/home/Testimonials';
 
 const Home = () => {
   return (
@@ -10,6 +11,8 @@ const Home = () => {
       <HeroCarousel />
       <CategoryGrid />
       <OurPrinciples />
+      
+      <Testimonials />
       
       {/* Why Choose Us - Inline Implementation */}
       <section className="section-padding bg-gray-50">
