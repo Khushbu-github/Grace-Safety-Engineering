@@ -36,8 +36,9 @@ export const CATEGORIES = [
       { name: 'Safety Harness', folder: 'assets/fallprotection', hero: 'big1.jpg' },
       { name: 'Respirators', folder: 'assets/faceprotection', hero: 'big01.jpg' },
       { name: 'Ear Protection', folder: 'assets/headsafety', hero: 'headprotection (1).jpg' },
-      { name: 'Gloves', folder: 'assets/handgloves', hero: 'handgloves (1).jpg' },
+      { name: 'Hand Gloves', folder: 'assets/handgloves', hero: 'handgloves (1).jpg' },
       { name: 'Safety Shoes', folder: 'assets/safetyshoes', hero: 'safetyshoes (1).jpg' },
+      { name: 'Body Protection', folder: 'assets/bodyprotection', hero: 'bodyprotection (1).jpg' },
     ]
   },
   {
@@ -48,6 +49,15 @@ export const CATEGORIES = [
       { name: 'Barricades', folder: 'assets/roadsafety', hero: 'roadsafety (6).jpg' },
       { name: 'Traffic Cones', folder: 'assets/roadsafety', hero: 'roadsafety (2).jpg' },
       { name: 'Lockout Tagout', folder: 'assets/locouttagout', hero: '01.jpg' },
+    ]
+  },
+  {
+    id: 'fire-safety',
+    title: 'Fire Safety Equipment',
+    icon: 'Flame',
+    subcategories: [
+      { name: 'Fire Extinguishers', folder: 'assets/firesafety', hero: 'big04.jpg' },
+      { name: 'Fire Suits & Gear', folder: 'assets/firesafety', hero: 'big01.jpg' },
     ]
   },
   {
@@ -120,7 +130,7 @@ export const CONTACT_INFO = {
   company: 'Grace Safety Engineering',
   tagline: 'The Multi Brand Safety Shop',
   address: '#1 First Floor, Doddrammanna Building, Kallubalu Cross, Jigani Hobli, Anekal Taluk, Bangalore – 560105',
-  phones: ['+91 9740700207', '+91 9845100617'],
-  email: 'sham.graysafetyeng@gmail.com',
+  phones: ['+91 9740700207', '+91 8088488777'],
+  email: 'gracesafetyengg@gmail.com',
   mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.871131495447!2d77.6321487747385!3d12.78696808751121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6c4d7e8b6b0b%3A0x6e8e8e8e8e8e8e8e!2sJigani%2C%20Karnataka%20562106!5e0!3m2!1sen!2sin!4v1715520000000!5m2!1sen!2sin'
 };

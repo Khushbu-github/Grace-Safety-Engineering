@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { CATEGORIES } from '../../data/constants';
+import { CATEGORIES, CONTACT_INFO } from '../../data/constants';
 import logoImg from '../../assets/logo.png';
 
 const Navbar = () => {
@@ -39,21 +39,28 @@ const Navbar = () => {
 
       {/* ── Main navbar ── */}
       <nav
-        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-400 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-100 py-2'
-            : 'bg-white py-3'
-        }`}
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-400 ${isScrolled
+          ? 'bg-white/95 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-100 py-2'
+          : 'bg-white py-3'
+          }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between gap-8">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0 group">
+          <Link to="/" className="flex items-center gap-3 shrink-0 group">
             <img
               src={logoImg}
-              alt="Grace Safety"
-              className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              alt={CONTACT_INFO.company}
+              className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-black text-gray-900 leading-none font-outfit uppercase tracking-tight group-hover:text-primary transition-colors">
+                Grace Safety <span className="text-primary italic">Engineering</span>
+              </span>
+              <span className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-0.5 ml-0.5">
+                {CONTACT_INFO.tagline}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop nav links */}
@@ -67,11 +74,10 @@ const Navbar = () => {
               >
                 <Link
                   to={link.href}
-                  className={`relative flex items-center gap-1 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                    isActive(link.href)
-                      ? 'text-primary bg-primary/8'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
+                  className={`relative flex items-center gap-1 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${isActive(link.href)
+                    ? 'text-primary bg-primary/8'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    }`}
                 >
                   {link.name}
                   {link.hasMegaMenu && (
@@ -139,11 +145,11 @@ const Navbar = () => {
           {/* Right actions */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
-              href="tel:+919740700207"
+              href={`tel:${CONTACT_INFO.phones[0].replace(/\s+/g, '')}`}
               className="flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-primary transition-colors px-3 py-2"
             >
               <Phone size={15} />
-              <span className="hidden xl:block">+91 97407 00207</span>
+              <span className="hidden xl:block">{CONTACT_INFO.phones[0]}</span>
             </a>
             <Link
               to="/contact"
@@ -205,11 +211,10 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.href}
-                      className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-bold transition-colors ${
-                        isActive(link.href)
-                          ? 'bg-primary/10 text-primary'
-                          : 'text-gray-700 hover:bg-gray-50'
-                      }`}
+                      className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-bold transition-colors ${isActive(link.href)
+                        ? 'bg-primary/10 text-primary'
+                        : 'text-gray-700 hover:bg-gray-50'
+                        }`}
                     >
                       {isActive(link.href) && (
                         <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -222,11 +227,11 @@ const Navbar = () => {
                 {/* Mobile contact strip */}
                 <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-3">
                   <a
-                    href="tel:+919740700207"
+                    href={`tel:${CONTACT_INFO.phones[0].replace(/\s+/g, '')}`}
                     className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors"
                   >
                     <Phone size={16} className="text-primary" />
-                    +91 97407 00207
+                    {CONTACT_INFO.phones[0]}
                   </a>
                   <Link
                     to="/contact"

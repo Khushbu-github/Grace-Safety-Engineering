@@ -10,6 +10,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/headsafety/big3.jpg',
     accent: 'from-emerald-600/80 to-emerald-900/90',
     tag: 'PPE',
+    link: '/products?cat=ppe-safety&sub=Helmets'
   },
   {
     name: 'Fire Safety',
@@ -17,6 +18,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/firesafety/big04.jpg',
     accent: 'from-red-600/80 to-red-900/90',
     tag: 'Safety',
+    link: '/products?cat=fire-safety&sub=Fire%20Extinguishers'
   },
   {
     name: 'Eye Protection',
@@ -24,6 +26,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/eyeprotection/big4.jpg',
     accent: 'from-sky-600/80 to-sky-900/90',
     tag: 'PPE',
+    link: '/products?cat=ppe-safety&sub=Safety%20Glasses'
   },
   {
     name: 'Road Safety',
@@ -31,6 +34,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/roadsafety/roadsafety (6).jpg',
     accent: 'from-amber-600/80 to-amber-900/90',
     tag: 'Industrial',
+    link: '/products?cat=industrial-safety&sub=Traffic%20Cones'
   },
   {
     name: 'Safety Shoes',
@@ -38,6 +42,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/safetyshoes/safetyshoes (1).jpg',
     accent: 'from-violet-600/80 to-violet-900/90',
     tag: 'PPE',
+    link: '/products?cat=ppe-safety&sub=Safety%20Shoes'
   },
   {
     name: 'Hand Gloves',
@@ -45,6 +50,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/handgloves/handgloves (1).jpg',
     accent: 'from-teal-600/80 to-teal-900/90',
     tag: 'PPE',
+    link: '/products?cat=ppe-safety&sub=Hand%20Gloves'
   },
   {
     name: 'Fall Protection',
@@ -52,6 +58,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/fallprotection/big1.jpg',
     accent: 'from-orange-600/80 to-orange-900/90',
     tag: 'Industrial',
+    link: '/products?cat=ppe-safety&sub=Safety%20Harness'
   },
   {
     name: 'Body Protection',
@@ -59,6 +66,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/bodyprotection/bodyprotection (1).jpg',
     accent: 'from-lime-600/80 to-lime-900/90',
     tag: 'PPE',
+    link: '/products?cat=ppe-safety&sub=Body%20Protection'
   },
   {
     name: 'Respiratory',
@@ -66,6 +74,7 @@ const CATEGORY_ITEMS = [
     image: '/assets/faceprotection/big01.jpg',
     accent: 'from-cyan-600/80 to-cyan-900/90',
     tag: 'PPE',
+    link: '/products?cat=ppe-safety&sub=Respirators'
   },
 ];
 
@@ -135,7 +144,7 @@ const CategoryGrid = () => {
           {CATEGORY_ITEMS.map((item, idx) => (
             <motion.div key={item.name} variants={cardVariants}>
               <Link
-                to="/products"
+                to={item.link}
                 className="group relative flex flex-col justify-end h-56 rounded-2xl overflow-hidden cursor-pointer"
                 onMouseEnter={() => setHovered(idx)}
                 onMouseLeave={() => setHovered(null)}
@@ -151,9 +160,8 @@ const CategoryGrid = () => {
 
                 {/* Coloured gradient overlay — slides up on hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-t ${item.accent} transition-opacity duration-400 ${
-                    hovered === idx ? 'opacity-100' : 'opacity-60'
-                  }`}
+                  className={`absolute inset-0 bg-gradient-to-t ${item.accent} transition-opacity duration-400 ${hovered === idx ? 'opacity-100' : 'opacity-60'
+                    }`}
                 />
 
                 {/* Tag pill */}
@@ -163,11 +171,10 @@ const CategoryGrid = () => {
 
                 {/* Arrow button */}
                 <div
-                  className={`absolute top-3 right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center transition-all duration-300 ${
-                    hovered === idx
-                      ? 'opacity-100 scale-100'
-                      : 'opacity-0 scale-75'
-                  }`}
+                  className={`absolute top-3 right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center transition-all duration-300 ${hovered === idx
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-75'
+                    }`}
                 >
                   <ArrowUpRight size={15} className="text-white" />
                 </div>
@@ -178,11 +185,10 @@ const CategoryGrid = () => {
                     {item.name}
                   </h3>
                   <p
-                    className={`text-white/70 text-xs leading-snug transition-all duration-300 ${
-                      hovered === idx
-                        ? 'opacity-100 max-h-10'
-                        : 'opacity-0 max-h-0'
-                    } overflow-hidden`}
+                    className={`text-white/70 text-xs leading-snug transition-all duration-300 ${hovered === idx
+                      ? 'opacity-100 max-h-10'
+                      : 'opacity-0 max-h-0'
+                      } overflow-hidden`}
                   >
                     {item.desc}
                   </p>

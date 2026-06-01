@@ -13,12 +13,21 @@ const Footer = () => {
     <footer className="bg-gray-50 border-t border-gray-100 pt-20 pb-10">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-          
+
           {/* Brand */}
           <div className="space-y-6">
-            <img src={logoImg} alt="Grace Safety" className="h-40 w-auto" />
-            <p className="text-primary font-bold text-xs uppercase tracking-[0.2em]">{CONTACT_INFO.tagline}</p>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <div className="flex items-center gap-4">
+              <img src={logoImg} alt={CONTACT_INFO.company} className="h-16 md:h-20 w-auto" />
+              <div className="flex flex-col">
+                <span className="text-xl md:text-2xl font-black text-gray-900 leading-none font-outfit uppercase tracking-tight">
+                  Grace Safety <span className="text-primary italic">Engineering</span>
+                </span>
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mt-1">
+                  {CONTACT_INFO.tagline}
+                </span>
+              </div>
+            </div>
+            <p className="text-gray-500 text-sm leading-relaxed max-w-sm">
               Trusted supplier of industrial safety equipment and engineering tools across Bangalore and beyond.
             </p>
           </div>
@@ -63,7 +72,7 @@ const Footer = () => {
           <p className="text-gray-400 text-xs">
             © {new Date().getFullYear()} Grace Safety Engineering. All rights reserved.
           </p>
-          <button 
+          <button
             onClick={scrollToTop}
             className="group flex items-center gap-2 text-gray-400 hover:text-gray-900 transition-colors text-xs font-bold uppercase tracking-widest"
           >

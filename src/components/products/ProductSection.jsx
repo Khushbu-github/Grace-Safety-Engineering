@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CATEGORIES } from '../../data/constants';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, X, Maximize2 } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
 
 // Glob all images in /public/assets — keys only, no eager import needed.
 // Public directory files are always served at root path (/public/x => /x).
@@ -28,7 +28,33 @@ const getImagesForFolder = (folderPath) => {
 };
 
 const ProductSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState(CATEGORIES[0]);
+  const [searchParams] = useSearchParams();
+  const [selectedCategory, setSelectedCategory] = React.useState(CATEGORIES[0]);
+  const [selectedImage, setSelectedImage] = React.useState(null);
+
+  // Handle URL parameters for Category/Subcategory deep-linking
+  React.useEffect(() => {
+    const catId = searchParams.get('cat');
+    const subName = searchParams.get('sub');
+
+    if (catId) {
+      const category = CATEGORIES.find(c => c.id === catId);
+      if (category) {
+        setSelectedCategory(category);
+
+        // If there's a subcategory, scroll to it after selection
+        if (subName) {
+          // Wrap in a small timeout to allow products to render after category switch
+          setTimeout(() => {
+            const element = document.getElementById(`sub-${subName.replace(/\s+/g, '-').toLowerCase()}`);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }, 400);
+        }
+      }
+    }
+  }, [searchParams]);
 
   return (
     <section id="products" className="section-padding pt-24 bg-gray-50 min-h-screen">
@@ -48,11 +74,10 @@ const ProductSection = () => {
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat)}
-                className={`shrink-0 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${
-                  selectedCategory.id === cat.id 
-                  ? 'bg-primary text-white shadow-lg shadow-primary/30' 
+                className={`shrink-0 px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${selectedCategory.id === cat.id
+                  ? 'bg-primary text-white shadow-lg shadow-primary/30'
                   : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100'
-                }`}
+                  }`}
               >
                 {cat.title}
               </button>
@@ -65,10 +90,11 @@ const ProductSection = () => {
           <AnimatePresence mode="popLayout">
             {selectedCategory.subcategories.map((sub, idx) => {
               const images = getImagesForFolder(sub.folder);
-              
+
               return (
                 <motion.div
                   key={`${selectedCategory.id}-${sub.name}`}
+                  id={`sub-${sub.name.replace(/\s+/g, '-').toLowerCase()}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
@@ -84,20 +110,24 @@ const ProductSection = () => {
                   {images.length > 0 ? (
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                       {images.map((imgSrc, imgIdx) => (
-                        <div key={imgIdx} className="group relative glass-card p-0 overflow-hidden aspect-square bg-white border border-gray-100">
+                        <div
+                          key={imgIdx}
+                          className="group relative glass-card p-0 overflow-hidden aspect-square bg-white border border-gray-100 cursor-zoom-in"
+                          onClick={() => setSelectedImage(imgSrc)}
+                        >
                           <div className="relative w-full h-full p-4 flex items-center justify-center overflow-hidden">
-                            <img 
-                              src={imgSrc} 
+                            <img
+                              src={imgSrc}
                               alt={`${sub.name} Product ${imgIdx + 1}`}
                               className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                               loading="lazy"
                             />
                             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            
+
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                              <Link to="/contact" className="bg-primary text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform">
-                                <ArrowRight size={20} />
-                              </Link>
+                              <div className="bg-primary text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform">
+                                <Maximize2 size={20} />
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -113,6 +143,52 @@ const ProductSection = () => {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {/* Lightbox Modal */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-10"
+            >
+              <motion.button
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+                onClick={() => setSelectedImage(null)}
+              >
+                <X size={32} />
+              </motion.button>
+
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative max-w-5xl w-full max-h-full flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={selectedImage}
+                  alt="Product Gallery"
+                  className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl shadow-black/50"
+                />
+
+                <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4">
+                  <Link
+                    to="/contact"
+                    className="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all flex items-center gap-2"
+                  >
+                    Enquire for this Product
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* View All */}
         <div className="mt-20 text-center">
