@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import banner1 from '../../assets/banner1.jpg';
-import banner3 from '../../assets/banner3.jpg';
+import banner3 from '../../assets/banner3.png';
 
 const slides = [
   {
@@ -48,7 +48,7 @@ const HeroCarousel = () => {
           className="absolute inset-0"
         >
           {/* Background Image */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${slides[current].image})` }}
           />
@@ -80,8 +80,8 @@ const HeroCarousel = () => {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Link 
-                    to="/about" 
+                  <Link
+                    to="/about"
                     className="bg-primary hover:bg-primary-dark text-white px-6 py-3.5 rounded-sm font-bold text-sm transition-colors flex items-center gap-3 group"
                   >
                     <span className="w-6 h-6 rounded-full bg-white text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -89,8 +89,8 @@ const HeroCarousel = () => {
                     </span>
                     More About Us!
                   </Link>
-                  <Link 
-                    to="/products" 
+                  <Link
+                    to="/products"
                     className="bg-white hover:bg-gray-100 text-primary px-8 py-3.5 rounded-sm font-bold text-sm transition-colors"
                   >
                     Our Products
@@ -103,13 +103,13 @@ const HeroCarousel = () => {
       </div>
 
       {/* Navigation Arrows */}
-      <button 
+      <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-20 flex items-center justify-center text-white/50 hover:text-white transition-colors"
       >
         <ChevronLeft size={40} strokeWidth={1} />
       </button>
-      <button 
+      <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-20 flex items-center justify-center text-white/50 hover:text-white transition-colors"
       >
@@ -122,9 +122,8 @@ const HeroCarousel = () => {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
-              current === idx ? 'border-primary bg-transparent' : 'border-white bg-white'
-            }`}
+            className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${current === idx ? 'border-primary bg-transparent' : 'border-white bg-white'
+              }`}
           />
         ))}
       </div>

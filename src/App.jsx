@@ -9,6 +9,7 @@ import ProductSection from './components/products/ProductSection';
 import Contact from './components/home/Contact';
 import Footer from './components/common/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
+import FloatingActions from './components/common/FloatingActions';
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -35,19 +36,19 @@ function App() {
     <div className="relative">
       <ScrollToTop />
       {/* Scroll Progress Bar */}
-      <motion.div 
+      <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left"
         style={{ scaleX }}
       />
 
       {/* Cursor Glow */}
-      <div 
+      <div
         id="cursor-glow"
         className="fixed w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none z-0 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000"
       />
 
       <Navbar />
-      
+
       <main className="min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -57,6 +58,7 @@ function App() {
         </Routes>
       </main>
 
+      <FloatingActions />
       <Footer />
     </div>
   );

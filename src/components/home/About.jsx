@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Shield, Hammer, Cog, Zap, Disc, CheckCircle2, ArrowRight, Users, Award, Package, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import banner1 from '../../assets/banner1.jpg';
-import banner3 from '../../assets/banner3.jpg';
+import banner3 from '../../assets/banner3.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -11,26 +11,26 @@ const fadeUp = {
 };
 
 const stats = [
-  { icon: Clock,   value: '10+',   label: 'Years of Experience' },
-  { icon: Package, value: '500+',  label: 'Products Supplied' },
-  { icon: Users,   value: '1000+', label: 'Happy Clients' },
-  { icon: Award,   value: '100%',  label: 'Genuine Products' },
+  { icon: Clock, value: '20+', label: 'Years of Experience (Since 2006)' },
+  { icon: Package, value: '500+', label: 'Products Supplied' },
+  { icon: Users, value: '1000+', label: 'Happy Clients' },
+  { icon: Award, value: '100%', label: 'Genuine Products' },
 ];
 
 const offerings = [
-  { title: 'Safety Equipment',      icon: Shield,  desc: 'Premium PPE — helmets, gloves, harnesses and body protection from globally certified manufacturers.' },
-  { title: 'Power Tools',           icon: Hammer,  desc: 'Heavy-duty drills, grinders, impact drivers and industrial power tools from top brands like Bosch & DeWalt.' },
-  { title: 'Industrial Hardware',   icon: Cog,     desc: 'Bench vices, chains, fasteners, hardware accessories and general industrial consumables.' },
-  { title: 'Welding Solutions',     icon: Zap,     desc: 'Certified welding machines, electrodes, safety curtains and complete welding accessory kits.' },
-  { title: 'Abrasives & Cutting',   icon: Disc,    desc: 'Cutting wheels, grinding discs, flap discs and coated abrasives for every surface and material.' },
-  { title: 'Measuring Instruments', icon: Cog,     desc: 'Vernier calipers, micrometers, gauges and precision instruments for accurate shop-floor measurement.' },
+  { title: 'Safety Equipment', icon: Shield, desc: 'Premium PPE — helmets, gloves, harnesses and body protection from globally certified manufacturers.' },
+  { title: 'Power Tools', icon: Hammer, desc: 'Heavy-duty drills, grinders, impact drivers and industrial power tools from top brands like Bosch & DeWalt.' },
+  { title: 'Industrial Hardware', icon: Cog, desc: 'Bench vices, chains, fasteners, hardware accessories and general industrial consumables.' },
+  { title: 'Welding Solutions', icon: Zap, desc: 'Certified welding machines, electrodes, safety curtains and complete welding accessory kits.' },
+  { title: 'Abrasives & Cutting', icon: Disc, desc: 'Cutting wheels, grinding discs, flap discs and coated abrasives for every surface and material.' },
+  { title: 'Measuring Instruments', icon: Cog, desc: 'Vernier calipers, micrometers, gauges and precision instruments for accurate shop-floor measurement.' },
 ];
 
 const values = [
-  { title: 'Quality First',      desc: 'Every product we stock is sourced from certified, reputable manufacturers with documented quality standards.' },
-  { title: 'Customer-Centric',   desc: 'From a single item to bulk supply, we tailor our service around the specific needs of each client.' },
-  { title: 'Safety Compliance',  desc: 'We only supply equipment that meets or exceeds relevant national and international safety standards.' },
-  { title: 'Fast Fulfilment',    desc: 'Reliable inventory management and strong supplier relationships ensure timely order delivery.' },
+  { title: 'Quality First', desc: 'Every product we stock is sourced from certified, reputable manufacturers with documented quality standards.' },
+  { title: 'Customer-Centric', desc: 'From a single item to bulk supply, we tailor our service around the specific needs of each client.' },
+  { title: 'Safety Compliance', desc: 'We only supply equipment that meets or exceeds relevant national and international safety standards.' },
+  { title: 'Fast Fulfilment', desc: 'Reliable inventory management and strong supplier relationships ensure timely order delivery.' },
 ];
 
 const About = () => {
@@ -145,7 +145,7 @@ const About = () => {
       </section>
 
       {/* ── 3. Our story split ── */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-cream">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 

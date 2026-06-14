@@ -3,76 +3,77 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 
+import aiHead from '../../assets/categories/ai_head.png';
+import aiFire from '../../assets/categories/ai_fire.png';
+import aiEye from '../../assets/categories/ai_eye.png';
+import aiRoad from '../../assets/categories/ai_road.png';
+import aiShoes from '../../assets/categories/ai_shoes.png';
+import aiGloves from '../../assets/categories/ai_gloves.png';
+import aiFall from '../../assets/categories/ai_fall.jpg';
+import aiBody from '../../assets/categories/ai_body.jpg';
+import aiRespiratory from '../../assets/categories/ai_respiratory.jpg';
+
 const CATEGORY_ITEMS = [
   {
     name: 'Head Protection',
     desc: 'Helmets, hard hats & ear defenders',
-    image: '/assets/headsafety/big3.jpg',
-    accent: 'from-emerald-600/80 to-emerald-900/90',
+    image: aiHead,
     tag: 'PPE',
     link: '/products?cat=ppe-safety&sub=Helmets'
   },
   {
     name: 'Fire Safety',
     desc: 'Extinguishers, suits & suppression systems',
-    image: '/assets/firesafety/big04.jpg',
-    accent: 'from-red-600/80 to-red-900/90',
+    image: aiFire,
     tag: 'Safety',
     link: '/products?cat=fire-safety&sub=Fire%20Extinguishers'
   },
   {
     name: 'Eye Protection',
     desc: 'Safety glasses, goggles & face shields',
-    image: '/assets/eyeprotection/big4.jpg',
-    accent: 'from-sky-600/80 to-sky-900/90',
+    image: aiEye,
     tag: 'PPE',
     link: '/products?cat=ppe-safety&sub=Safety%20Glasses'
   },
   {
     name: 'Road Safety',
     desc: 'Cones, barricades & reflective gear',
-    image: '/assets/roadsafety/roadsafety (6).jpg',
-    accent: 'from-amber-600/80 to-amber-900/90',
+    image: aiRoad,
     tag: 'Industrial',
     link: '/products?cat=industrial-safety&sub=Traffic%20Cones'
   },
   {
     name: 'Safety Shoes',
     desc: 'Steel toe, anti-slip & chemical resistant',
-    image: '/assets/safetyshoes/safetyshoes (1).jpg',
-    accent: 'from-violet-600/80 to-violet-900/90',
+    image: aiShoes,
     tag: 'PPE',
     link: '/products?cat=ppe-safety&sub=Safety%20Shoes'
   },
   {
     name: 'Hand Gloves',
     desc: 'Cut resistant, chemical & electrical gloves',
-    image: '/assets/handgloves/handgloves (1).jpg',
-    accent: 'from-teal-600/80 to-teal-900/90',
+    image: aiGloves,
     tag: 'PPE',
     link: '/products?cat=ppe-safety&sub=Hand%20Gloves'
   },
   {
     name: 'Fall Protection',
     desc: 'Harnesses, lanyards & anchor systems',
-    image: '/assets/fallprotection/big1.jpg',
-    accent: 'from-orange-600/80 to-orange-900/90',
+    image: aiFall,
     tag: 'Industrial',
     link: '/products?cat=ppe-safety&sub=Safety%20Harness'
   },
   {
     name: 'Body Protection',
     desc: 'Hi-vis vests, coveralls & chemical suits',
-    image: '/assets/bodyprotection/bodyprotection (1).jpg',
-    accent: 'from-lime-600/80 to-lime-900/90',
+    image: aiBody,
     tag: 'PPE',
     link: '/products?cat=ppe-safety&sub=Body%20Protection'
   },
   {
     name: 'Respiratory',
     desc: 'Respirators, masks & air purifying units',
-    image: '/assets/faceprotection/big01.jpg',
-    accent: 'from-cyan-600/80 to-cyan-900/90',
+    image: aiRespiratory,
     tag: 'PPE',
     link: '/products?cat=ppe-safety&sub=Respirators'
   },
@@ -94,7 +95,7 @@ const CategoryGrid = () => {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section className="bg-gray-50 py-24 relative overflow-hidden">
+    <section className="bg-cream py-24 relative overflow-hidden">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.06]"
@@ -145,27 +146,24 @@ const CategoryGrid = () => {
             <motion.div key={item.name} variants={cardVariants}>
               <Link
                 to={item.link}
-                className="group relative flex flex-col justify-end h-56 rounded-2xl overflow-hidden cursor-pointer"
+                className="group relative flex flex-col justify-end h-56 rounded-2xl overflow-hidden cursor-pointer bg-cream border border-gray-100 shadow-sm"
                 onMouseEnter={() => setHovered(idx)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* Background image */}
+                {/* Background image - Fill the card as requested */}
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
                   style={{ backgroundImage: `url(${item.image})` }}
                 />
 
-                {/* Always-on dark base overlay */}
-                <div className="absolute inset-0 bg-gray-950/40" />
+                {/* Base cream overlay for a premium look */}
+                <div className="absolute inset-0 bg-cream/10" />
 
-                {/* Coloured gradient overlay — slides up on hover */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-t ${item.accent} transition-opacity duration-400 ${hovered === idx ? 'opacity-100' : 'opacity-60'
-                    }`}
-                />
+                {/* Subtle dark gradient at the bottom for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-80" />
 
                 {/* Tag pill */}
-                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest bg-white/20 backdrop-blur-sm text-white px-2 py-0.5 rounded-full">
+                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest bg-primary text-white px-2 py-0.5 rounded-full shadow-sm">
                   {item.tag}
                 </span>
 

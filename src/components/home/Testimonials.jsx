@@ -28,7 +28,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
+    <section className="section-padding bg-cream relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
@@ -55,17 +55,17 @@ const Testimonials = () => {
               <div className="absolute top-6 right-6 text-primary/10 group-hover:text-primary/20 transition-colors duration-300">
                 <Quote size={48} />
               </div>
-              
+
               <div className="flex items-center gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} size={18} className="fill-primary text-primary" />
                 ))}
               </div>
-              
+
               <p className="text-gray-600 leading-relaxed mb-8 flex-grow relative z-10">
                 "{testimonial.content}"
               </p>
-              
+
               <div className="mt-auto border-t border-gray-100 pt-5 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg shrink-0">
                   {testimonial.name.charAt(0)}

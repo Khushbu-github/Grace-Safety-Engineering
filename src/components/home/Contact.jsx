@@ -4,14 +4,49 @@ import { MapPin, Phone, Mail, MessageSquare, Send } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/constants';
 
 const Contact = () => {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    phone: '',
+    email: '',
+    interest: 'Safety Equipment',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    try {
+      const whatsappNo = CONTACT_INFO.phones[0].replace(/\s|\+/g, '');
+      const message = `*Grace Safety Enquiry*
+*Name:* ${formData.name}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email}
+*Interest:* ${formData.interest}
+*Message:* ${formData.message}`;
+
+      const whatsappUrl = `https://wa.me/${whatsappNo}?text=${encodeURIComponent(message)}`;
+
+      // Use location.assign for reliable redirect even if popups are blocked
+      window.location.assign(whatsappUrl);
+    } catch (error) {
+      console.error("WhatsApp Redirection Error:", error);
+      alert("Could not redirect to WhatsApp. Please try again or use the floating contact button.");
+    }
+  };
+
   return (
-    <section id="contact" className="section-padding pt-24 bg-white relative overflow-hidden">
+    <section id="contact" className="section-padding pt-24 bg-cream relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Left: Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -66,12 +101,12 @@ const Contact = () => {
 
             {/* Map Embed */}
             <div className="mt-12 rounded-3xl overflow-hidden border border-gray-200 opacity-80 hover:opacity-100 transition-all duration-500">
-              <iframe 
+              <iframe
                 src={CONTACT_INFO.mapsEmbed}
-                width="100%" 
-                height="200" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
+                width="100%"
+                height="200"
+                style={{ border: 0 }}
+                allowFullScreen=""
                 loading="lazy"
                 title="Google Maps"
               />
@@ -87,24 +122,24 @@ const Contact = () => {
             className="glass-card p-10 border-gray-100 bg-white shadow-xl"
           >
             <h3 className="text-2xl font-black mb-8">Send an Enquiry</h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Full Name</label>
-                  <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary outline-none transition-colors" placeholder="John Doe" />
+                  <input required name="name" value={formData.name} onChange={handleChange} type="text" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary outline-none transition-colors" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Phone</label>
-                  <input type="tel" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary outline-none transition-colors" placeholder="+91 00000 00000" />
+                  <input required name="phone" value={formData.phone} onChange={handleChange} type="tel" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary outline-none transition-colors" placeholder="+91 00000 00000" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Email Address</label>
-                <input type="email" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary outline-none transition-colors" placeholder="john@example.com" />
+                <input required name="email" value={formData.email} onChange={handleChange} type="email" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary outline-none transition-colors" placeholder="john@example.com" />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Product Interest</label>
-                <select className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:border-primary outline-none transition-colors appearance-none">
+                <select name="interest" value={formData.interest} onChange={handleChange} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:border-primary outline-none transition-colors appearance-none">
                   <option>Safety Equipment</option>
                   <option>Power Tools</option>
                   <option>Abrasives</option>
@@ -113,11 +148,11 @@ const Contact = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-gray-400">Your Message</label>
-                <textarea rows="4" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary outline-none transition-colors" placeholder="How can we help you?" />
+                <textarea required name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary outline-none transition-colors" placeholder="How can we help you?" />
               </div>
-              
+
               <button type="submit" className="btn-primary w-full flex items-center justify-center gap-3 group">
-                Send Message
+                Send to WhatsApp
                 <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
             </form>
@@ -125,17 +160,6 @@ const Contact = () => {
 
         </div>
       </div>
-
-      {/* Floating WhatsApp */}
-      <a 
-        href={`https://wa.me/${CONTACT_INFO.phones[0].replace(/\s|\+/g, '')}`} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="fixed bottom-10 right-10 z-50 p-4 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 hover:scale-110 transition-transform active:scale-95 flex items-center gap-2 group"
-      >
-        <MessageSquare size={24} />
-        <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 font-bold text-sm">Chat with Us</span>
-      </a>
     </section>
   );
 };

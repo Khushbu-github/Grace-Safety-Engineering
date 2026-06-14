@@ -1,3 +1,14 @@
+import b1 from '../assets/b1.png';
+import b2 from '../assets/b2.png';
+import b3 from '../assets/b3.png';
+import b4 from '../assets/b4.png';
+import b5 from '../assets/b5.png';
+import b6 from '../assets/b6.png';
+import b7 from '../assets/b7.png';
+import b8 from '../assets/b8.png';
+import b9 from '../assets/b9.png';
+import b10 from '../assets/b10.png';
+
 export const COLORS = {
   primary: '#F4B400',
   darkGreen: '#3A3A3A',
@@ -9,20 +20,16 @@ export const COLORS = {
 };
 
 export const BRANDS = [
-  { name: 'Bosch', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/1280px-Bosch-logo.svg.png' },
-  { name: 'DeWalt', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/DeWalt_logo.svg/1200px-DeWalt_logo.svg.png' },
-  { name: 'Hitachi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Hitachi_Logo.svg/1200px-Hitachi_Logo.svg.png' },
-  { name: '3M', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/3M_wordmark.svg/1200px-3M_wordmark.svg.png' },
-  { name: 'JCB', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/JCB_logo.svg/1200px-JCB_logo.svg.png' },
-  { name: 'Venus', logo: 'https://dummyimage.com/200x80/000/fff&text=Venus' },
-  { name: 'Liberty', logo: 'https://dummyimage.com/200x80/000/fff&text=Liberty' },
-  { name: 'Karam', logo: 'https://dummyimage.com/200x80/000/fff&text=Karam' },
-  { name: 'Taparia', logo: 'https://dummyimage.com/200x80/000/fff&text=Taparia' },
-  { name: 'Tiger', logo: 'https://dummyimage.com/200x80/000/fff&text=Tiger' },
-  { name: 'Euro', logo: 'https://dummyimage.com/200x80/000/fff&text=Euro' },
-  { name: 'Mastech', logo: 'https://dummyimage.com/200x80/000/fff&text=Mastech' },
-  { name: 'Udyogi', logo: 'https://dummyimage.com/200x80/000/fff&text=Udyogi' },
-  { name: 'Alko Plus', logo: 'https://dummyimage.com/200x80/000/fff&text=Alko+Plus' },
+  { name: 'Brand 1', logo: b1 },
+  { name: 'Brand 2', logo: b2 },
+  { name: 'Brand 3', logo: b3 },
+  { name: 'Brand 4', logo: b4 },
+  { name: 'Brand 5', logo: b5 },
+  { name: 'Brand 6', logo: b6 },
+  { name: 'Brand 7', logo: b7 },
+  { name: 'Brand 8', logo: b8 },
+  { name: 'Brand 9', logo: b9 },
+  { name: 'Brand 10', logo: b10 },
 ];
 
 export const CATEGORIES = [
@@ -46,8 +53,7 @@ export const CATEGORIES = [
     title: 'Industrial Safety Accessories',
     icon: 'Construction',
     subcategories: [
-      { name: 'Barricades', folder: 'assets/roadsafety', hero: 'roadsafety (6).jpg' },
-      { name: 'Traffic Cones', folder: 'assets/roadsafety', hero: 'roadsafety (2).jpg' },
+      { name: 'Road Safety', folder: 'assets/roadsafety', hero: 'roadsafety (6).jpg' },
       { name: 'Lockout Tagout', folder: 'assets/locouttagout', hero: '01.jpg' },
     ]
   },
@@ -56,74 +62,17 @@ export const CATEGORIES = [
     title: 'Fire Safety Equipment',
     icon: 'Flame',
     subcategories: [
-      { name: 'Fire Extinguishers', folder: 'assets/firesafety', hero: 'big04.jpg' },
-      { name: 'Fire Suits & Gear', folder: 'assets/firesafety', hero: 'big01.jpg' },
+      { name: 'Fire Safety Equipment', folder: 'assets/firesafety', hero: 'big04.jpg' },
     ]
   },
   {
-    id: 'abrasives',
-    title: 'Abrasives & Cutting Tools',
-    icon: 'Disc',
-    subcategories: [
-      { name: 'Grinding Wheels', folder: 'assets/others', hero: 'others (4).jpg' },
-      { name: 'Cut Off Wheels', folder: 'assets/others', hero: 'others (11).jpg' },
-    ]
-  },
-  {
-    id: 'power-tools',
-    title: 'Power Tools',
+    id: 'tools-abrasives',
+    title: 'Tools, Abrasives & Hardware',
     icon: 'Hammer',
     subcategories: [
-      { name: 'Drills', folder: 'assets/others', hero: 'other (4).jpg' },
-      { name: 'Bosch Tools', folder: 'assets/others', hero: 'other (1).jpg' },
+      { name: 'Power Tools, Abrasives & Hardware', folder: 'assets/others', hero: '000_featured_abrasives.jpg' },
     ]
   },
-  {
-    id: 'welding',
-    title: 'Welding Equipment',
-    icon: 'Zap',
-    subcategories: [
-      { name: 'Welding Machines', folder: 'assets/firesafety', hero: 'big01.jpg' },
-    ]
-  },
-  {
-    id: 'hand-tools',
-    title: 'Hand Tools',
-    icon: 'Hammer',
-    subcategories: [
-      { name: 'Spanners', folder: 'assets/others', hero: 'others (5).jpg' },
-      { name: 'Screwdrivers', folder: 'assets/others', hero: 'others (7).jpg' },
-      { name: 'Pliers', folder: 'assets/others', hero: 'others (8).jpg' },
-      { name: 'Tool Kits', folder: 'assets/others', hero: 'others (9).jpg' },
-    ]
-  },
-  {
-    id: 'measuring',
-    title: 'Measuring Instruments',
-    icon: 'Ruler',
-    subcategories: [
-      { name: 'Vernier Calipers', folder: 'assets/others', hero: 'others (12).jpg' },
-      { name: 'Gauges', folder: 'assets/others', hero: 'others (13).jpg' },
-    ]
-  },
-  {
-    id: 'machinery',
-    title: 'Industrial Machines & Hardware',
-    icon: 'Settings',
-    subcategories: [
-      { name: 'Bench Vice', folder: 'assets/others', hero: 'others (15).jpg' },
-      { name: 'Industrial Cutting Machines', folder: 'assets/others', hero: 'others (16).jpg' },
-      { name: 'Chain Tools', folder: 'assets/others', hero: 'others (17).jpg' },
-    ]
-  },
-  {
-    id: 'others',
-    title: 'Others',
-    icon: 'Package',
-    subcategories: [
-      { name: 'Other Products', folder: 'assets/others', hero: 'others (1).jpg' },
-    ]
-  }
 ];
 
 export const CONTACT_INFO = {

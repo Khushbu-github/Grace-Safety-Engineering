@@ -57,7 +57,7 @@ const ProductSection = () => {
   }, [searchParams]);
 
   return (
-    <section id="products" className="section-padding pt-24 bg-gray-50 min-h-screen">
+    <section id="products" className="section-padding pt-24 bg-cream min-h-screen">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Product Range</span>
@@ -108,33 +108,47 @@ const ProductSection = () => {
                   </div>
 
                   {images.length > 0 ? (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                      {images.map((imgSrc, imgIdx) => (
-                        <div
-                          key={imgIdx}
-                          className="group relative glass-card p-0 overflow-hidden aspect-square bg-white border border-gray-100 cursor-zoom-in"
-                          onClick={() => setSelectedImage(imgSrc)}
-                        >
-                          <div className="relative w-full h-full p-4 flex items-center justify-center overflow-hidden">
-                            <img
-                              src={imgSrc}
-                              alt={`${sub.name} Product ${imgIdx + 1}`}
-                              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
-                              loading="lazy"
-                            />
-                            <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+                      {images.map((imgSrc, imgIdx) => {
+                        const noFeaturedSubs = ['Safety Shoes', 'Hand Gloves'];
+                        const isFeatured = imgIdx === 0 && !noFeaturedSubs.includes(sub.name);
 
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                              <div className="bg-primary text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform">
-                                <Maximize2 size={20} />
+                        return (
+                          <div
+                            key={imgIdx}
+                            className={`group relative glass-card p-0 overflow-hidden bg-white border border-gray-100 cursor-zoom-in transition-all duration-500 ${isFeatured
+                              ? 'col-span-full h-[300px] md:h-[500px]'
+                              : 'aspect-square'
+                              }`}
+                            onClick={() => setSelectedImage(imgSrc)}
+                          >
+                            <div className={`relative w-full h-full flex items-center justify-center overflow-hidden ${isFeatured ? 'p-0' : 'p-4'}`}>
+                              <img
+                                src={imgSrc}
+                                alt={`${sub.name} Product ${imgIdx + 1}`}
+                                className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${isFeatured ? 'object-cover' : 'object-contain'
+                                  }`}
+                                loading="lazy"
+                              />
+                              {!isFeatured && <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />}
+
+                              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="bg-primary text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform">
+                                  <Maximize2 size={24} />
+                                </div>
                               </div>
+                              {isFeatured && (
+                                <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">
+                                  Featured
+                                </div>
+                              )}
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   ) : (
-                    <div className="p-8 text-center bg-white border border-gray-100 rounded-2xl text-gray-400">
+                    <div className="p-8 text-center bg-cream border border-gray-200 rounded-2xl text-gray-400">
                       Images coming soon for {sub.name}...
                     </div>
                   )}

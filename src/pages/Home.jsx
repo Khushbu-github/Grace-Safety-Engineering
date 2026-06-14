@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import HeroCarousel from '../components/home/HeroCarousel';
+import Brands from '../components/home/Brands';
 import CategoryGrid from '../components/home/CategoryGrid';
 import OurPrinciples from '../components/home/OurPrinciples';
 import Testimonials from '../components/home/Testimonials';
@@ -9,11 +10,12 @@ const Home = () => {
   return (
     <>
       <HeroCarousel />
+      <Brands />
       <CategoryGrid />
       <OurPrinciples />
-      
+
       <Testimonials />
-      
+
       {/* Why Choose Us - Inline Implementation */}
       <section className="section-padding bg-gray-50">
         <div className="container mx-auto px-6">
@@ -27,7 +29,7 @@ const Home = () => {
               { title: 'Safety Certified', desc: 'Equipment meeting international safety standards.' },
               { title: 'Reliable Support', desc: 'Expert guidance and fast customer response.' }
             ].map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 whileHover={{ y: -10 }}
                 className="glass-card text-center"

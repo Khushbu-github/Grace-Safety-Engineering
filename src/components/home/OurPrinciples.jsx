@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, ThumbsUp, Headphones } from 'lucide-react';
-import banner3 from '../../assets/banner3.jpg';
+import banner3 from '../../assets/banner3.png';
 
 const pillars = [
   {
@@ -26,7 +26,7 @@ const pillars = [
 
 const OurPrinciples = () => {
   return (
-    <section className="overflow-hidden bg-white">
+    <section className="overflow-hidden bg-cream">
       <div className="flex flex-col lg:flex-row min-h-[520px]">
 
         {/* ── Left: Text Content ── */}
@@ -101,8 +101,8 @@ const OurPrinciples = () => {
             alt="Grace Safety Engineering team at work"
             className="w-full h-full object-cover"
           />
-          {/* Subtle left-edge gradient so it blends into the white section */}
-          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+          {/* Subtle left-edge gradient so it blends into the cream section */}
+          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cream to-transparent pointer-events-none" />
         </motion.div>
 
       </div>
