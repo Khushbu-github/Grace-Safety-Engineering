@@ -78,8 +78,8 @@ export const CATEGORIES = [
 export const CONTACT_INFO = {
   company: 'Grace Safety Engineering',
   tagline: 'The Multi Brand Safety Shop',
-  address: '#1 First Floor, Doddrammanna Building, Kallubalu Cross, Jigani Hobli, Anekal Taluk, Bangalore – 560105',
+  address: 'RK Royal Interiors, shop no 6, harohalli, nagaraj building, Sy.No.7/5, mainroad, Mahanthalingapura, Jigani, Karnataka 560083',
   phones: ['+91 9740700207', '+91 8088488777'],
   email: 'gracesafetyengg@gmail.com',
-  mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.871131495447!2d77.6321487747385!3d12.78696808751121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6c4d7e8b6b0b%3A0x6e8e8e8e8e8e8e8e!2sJigani%2C%20Karnataka%20562106!5e0!3m2!1sen!2sin!4v1715520000000!5m2!1sen!2sin'
+  mapsEmbed: 'https://www.google.com/maps?q=RK+Royal+Interiors,+shop+no+6,+harohalli,+nagaraj+building,+Jigani,+Karnataka+560083&output=embed'
 };
